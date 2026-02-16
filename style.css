@@ -1,4 +1,6 @@
 body {
+    background-image: url(e-commerce-pictures-2.webp);
+    background-size: cover;
     font-family: Arial, sans-serif;
     padding: 20px;
     background-color: #f5f5f5;
@@ -28,4 +30,25 @@ button {
     margin: 20px auto;
     padding: 10px 20px;
     font-size: 16px;
+}
+
+.product{
+    background-image: url(e-commerce-pictures-2.webp);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: black;
+    font-style: oblique;
+}
+
+.product:hover{
+    background-color: aqua;
+}
+
+button{
+    color: red;
+}
+
+button:hover{
+    color: orange;
 }

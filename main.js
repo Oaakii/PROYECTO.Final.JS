@@ -1,6 +1,5 @@
-// Simulación de datos remotos (podría reemplazarse por fetch)
 const products = [
-    { id: 1, name: "Laptop", price: 1200 },
+    { id: 1, name: "Laptop", price: 1200, },
     { id: 2, name: "Celular", price: 800 },
     { id: 3, name: "Auriculares", price: 150 },
     { id: 4, name: "Teclado", price: 100 }
@@ -8,7 +7,6 @@ const products = [
 
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-// Render productos
 function renderProducts() {
     const container = document.getElementById("products-container");
     container.innerHTML = "";
@@ -25,8 +23,6 @@ function renderProducts() {
         container.appendChild(div);
     });
 }
-
-// Agregar al carrito
 function addToCart(id) {
     const product = products.find(p => p.id === id);
     const item = cart.find(p => p.id === id);
@@ -41,7 +37,6 @@ function addToCart(id) {
     renderCart();
 }
 
-// Render carrito
 function renderCart() {
     const container = document.getElementById("cart-container");
     container.innerHTML = "";
@@ -60,15 +55,12 @@ function renderCart() {
 
     renderSummary();
 }
-
-// Eliminar producto
 function removeFromCart(id) {
     cart = cart.filter(item => item.id !== id);
     saveCart();
     renderCart();
 }
 
-// Resumen de compra
 function renderSummary() {
     const summary = document.getElementById("cart-summary");
 
@@ -83,12 +75,10 @@ function renderSummary() {
     `;
 }
 
-// Guardar en localStorage
 function saveCart() {
     localStorage.setItem("cart", JSON.stringify(cart));
 }
 
-// Checkout
 document.getElementById("checkout-btn").addEventListener("click", () => {
     if (cart.length === 0) {
         Swal.fire("El carrito está vacío");
@@ -111,6 +101,5 @@ document.getElementById("checkout-btn").addEventListener("click", () => {
     });
 });
 
-// Inicializar
 renderProducts();
 renderCart();
